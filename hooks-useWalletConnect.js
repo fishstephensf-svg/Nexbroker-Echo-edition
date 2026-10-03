@@ -140,7 +140,7 @@ export function useWalletConnect() {
   const getCoinbaseDeepLink = useCallback(() => {
     if (!uri) return null;
     const encoded = encodeURIComponent(uri);
-    return `https://go.cb-w.com/wc?uri=${encoded}`;
+    return `cbwallet://wc?uri=${encoded}`;
   }, [uri]);
 
   return {
