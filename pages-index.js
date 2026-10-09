@@ -38,7 +38,7 @@ function ConnectScreen({ wc }) {
       {!uri ? (
         <div style={{width:"100%",display:"flex",flexDirection:"column",gap:12}}>
           <button onClick={connect} disabled={loading} style={{width:"100%",padding:"17px",borderRadius:14,background:C.teal,border:"none",color:C.bg,fontWeight:800,fontSize:16,cursor:"pointer",opacity:loading?0.6:1}}>
-            {loading?"Connecting…":"Connect Coinbase Wallet"}
+            {loading?"Connecting…":"Connect Wallet"}
           </button>
           <div style={{textAlign:"center",fontSize:12,color:C.txtMute}}>Also works with MetaMask Mobile and any WalletConnect wallet</div>
         </div>
@@ -47,6 +47,9 @@ function ConnectScreen({ wc }) {
           <div style={{fontSize:13,color:C.txtSub,textAlign:"center"}}>Tap below to open your wallet app</div>
           <a href={getCoinbaseDeepLink()} style={{display:"block",width:"100%",padding:"17px",borderRadius:14,background:"#1652F0",color:"#fff",fontWeight:800,fontSize:16,textAlign:"center",textDecoration:"none"}}>
             Open in Coinbase Wallet
+          </a>
+          <a href={`https://metamask.app.link/wc?uri=${encodeURIComponent(uri)}`} style={{display:"block",width:"100%",padding:"17px",borderRadius:14,background:"#F6851B",color:"#fff",fontWeight:800,fontSize:16,textAlign:"center",textDecoration:"none"}}>
+            Open in MetaMask
           </a>
           <button onClick={()=>navigator.clipboard?.writeText(uri)} style={{padding:"11px 20px",borderRadius:10,background:C.surfaceHi,border:`1px solid ${C.border}`,color:C.txtSub,fontSize:13,cursor:"pointer"}}>
             Copy Connection Code
